@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Image;
@@ -10,10 +11,9 @@ use App\Models\Message;
 use App\Models\Reserve;
 use App\Models\Review;
 use App\Models\Setting;
-use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Location;
+
 
 class HomeController extends Controller
 {
@@ -24,10 +24,10 @@ class HomeController extends Controller
     }
     public function index(){
         $setting=Setting::first();
-        $slider=Transfer::select('id','title','image','slug','base_price','category_id')->limit(4)->get();
-        $daily=Transfer::select('id','title','image','slug','base_price','category_id')->limit(4)->inRandomOrder()->get();
-        $last=Transfer::select('id','title','image','slug','base_price','category_id')->orderByDesc('id')->get();
-        $picked=Transfer::select('id','title','image','slug','base_price','category_id')->inRandomOrder()->get();
+        $slider=Car::select('id','title','image','slug','price','category_id')->limit(4)->get();
+        $daily=Car::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
+        $last=Car::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
+        $picked=Car::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,
@@ -45,22 +45,22 @@ class HomeController extends Controller
     }
 
 
-    public function transfer($id,$slug){
+    public function car($id,$slug){
         $setting=Setting::first();
-        $data=Transfer::find($id);
-        $images=Image::where('transfer_id',$id)->get();
-        $reviews=Review::where('transfer_id',$id)->get();
-        $location=Location::all();
+        $data=Car::find($id);
+        $images=Image::where('car_id',$id)->get();
+        $reviews=Review::where('car_id',$id)->get();
 
-        return view('home.transfer_detail',['setting'=>$setting,'data'=>$data,'images'=>$images,'reviews'=>$reviews,'location'=>$location]);
+
+        return view('home.car_detail',['setting'=>$setting,'data'=>$data,'images'=>$images,'reviews'=>$reviews]);
 
     }
-    public function categorytransfers($id,$slug){
+    public function categorycars($id,$slug){
         $setting=Setting::first();
-        $datalist=Transfer::where('category_id',$id)->get();
+        $datalist=Car::where('category_id',$id)->get();
         $data=Category::find($id);
 
-        return view('home.category_transfers',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
+        return view('home.category_cars',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
 
     }
 
@@ -72,26 +72,26 @@ class HomeController extends Controller
         return view('home.contact',['setting'=>$setting,'page'=>'home']);
     }
 
-    public function gettransfer(Request $request)
+    public function getcar(Request $request)
     {
         $search=$request->input('search');
-        $count=Transfer::where('title','like','%'.$search.'%')->get()->count();
+        $count=Car::where('title','like','%'.$search.'%')->get()->count();
         if($count==1)
         {
-            $data=Transfer::where('title','like','%'.$search.'%')->first();
-            return redirect()->route('transfer',['id'=>$data->id,'slug'=>$data->slug]);
+            $data=Car::where('title','like','%'.$search.'%')->first();
+            return redirect()->route('car',['id'=>$data->id,'slug'=>$data->slug]);
         }
         else
         {
-            return redirect()->route('transferlist',['search'=>$search]);
+            return redirect()->route('carlist',['search'=>$search]);
         }
 
 
     }
-    public function transferlist($search){
-        $datalist=Transfer::where('title','like','%'.$search.'%')->get();
+    public function carlist($search){
+        $datalist=Car::where('title','like','%'.$search.'%')->get();
 
-        return view('home.search_transfers',['search'=>$search,'datalist'=>$datalist]);
+        return view('home.search_cars',['search'=>$search,'datalist'=>$datalist]);
 
     }
     public function references(){
@@ -122,24 +122,24 @@ class HomeController extends Controller
         $data = new Review;
 
         $data->user_id = Auth::id();
-        $transfer = Transfer::find($id);
-        $data->transfer_id=$id;
+        $car = Car::find($id);
+        $data->car_id=$id;
         $data->subject = $request->input('subject');
         $data->review = $request->input('review');
         $data->IP = $_SERVER['REMOTE_ADDR'];
 
         $data->save();
 
-        return redirect()->route('transfer',['id'=>$transfer->id,'slug'=>$transfer->slug])->with('success','Mesajınız kaydedilmiştir');
+        return redirect()->route('car',['id'=>$car->id,'slug'=>$car->slug])->with('success','Mesajınız kaydedilmiştir');
     }
     public function sendreserve(Request $request,$id)
     {
         $data = new Reserve;
         $data->user_id = Auth::id();
-        $transfer = Transfer::find($id);
+        $car = Car::find($id);
         $data->fromlocation = $request->input('fromlocation');
         $data->tolocation = $request->input('tolocation');
-        $data->transfer_id = $id;
+        $data->car_id = $id;
         $data->flightDate = $request->input('flightDate');
         $data->flightTime = $request->input('flightTime');
         $data->pickupTime = $request->input('pickupTime');
@@ -152,7 +152,7 @@ class HomeController extends Controller
         $data->IP = $_SERVER['REMOTE_ADDR'];
         $data->save();
 
-        return redirect()->route('reserveconfirm',['id'=>$transfer->id,'slug'=>$transfer->slug]);
+        return redirect()->route('reserveconfirm',['id'=>$car->id,'slug'=>$car->slug]);
     }
     public function reserveconfirm(){
         $setting=Setting::first();

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Package;
+
 use App\Models\Review;
-use App\Models\Transfer;
+use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +29,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $datalist = Transfer::with('transfer_id')->get();
+        $datalist = Car::with('car_id')->get();
         return view('home.user_review_add', ['datalist' => $datalist]);
     }
 
@@ -44,7 +44,7 @@ class ReviewController extends Controller
         $data = new Review();
 
         $data->user_id = Auth::id();
-        $data = Transfer::find($id);
+        $data = Car::find($id);
         $data->subject = $request->input('subject');
         $data->review = $request->input('review');
         $data->IP = $_SERVER['REMOTE_ADDR'];

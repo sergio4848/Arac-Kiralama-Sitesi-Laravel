@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
-use App\Models\transfer;
+use App\Models\car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,11 +27,11 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($transfer_id)
+    public function create($car_id)
     {
-        $data=Transfer::find($transfer_id);
+        $data=Car::find($car_id);
 
-        $images=DB::table('images')->where('transfer_id','=',$transfer_id)->get();
+        $images=DB::table('images')->where('car_id','=',$car_id)->get();
         return view('admin.image_add',['data'=>$data,'images'=>$images]);
 
     }
@@ -42,18 +42,18 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$transfer_id)
+    public function store(Request $request,$car_id)
     {
         $data = new Image;
 
         $data->title = $request->input('title');
         $data->image = $request->input('image');
-        $data->transfer_id = $transfer_id;
+        $data->car_id = $car_id;
 
         $data->image = Storage::putFile('images', $request->file('image'));
         $data->save();
 
-        return redirect()->route('admin_image_add',['transfer_id' =>$transfer_id]);
+        return redirect()->route('admin_image_add',['car_id' =>$car_id]);
     }
 
     /**
@@ -96,11 +96,11 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image,$id,$transfer_id)
+    public function destroy(Image $image,$id,$car_id)
     {
         $data=Image::find($id);
         $data->delete();
 
-        return redirect()->route('admin_image_add',['transfer_id' =>$transfer_id]);
+        return redirect()->route('admin_image_add',['car_id' =>$car_id]);
     }
 }

@@ -3,24 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Car;
 use App\Models\Category;
-use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class TransferController extends Controller
+class CarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $datalist=Transfer::all();
-        return view('admin.transfers',['datalist'=>$datalist]);
+        $datalist=Car::all();
+        return view('admin.cars',['datalist'=>$datalist]);
     }
 
     /**
@@ -31,7 +26,7 @@ class TransferController extends Controller
     public function create()
     {
         $datalist = Category::with('children')->get();
-        return view('admin.transfers_add', ['datalist' => $datalist]);
+        return view('admin.cars_add', ['datalist' => $datalist]);
     }
 
     /**
@@ -42,7 +37,7 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Transfer;
+        $data = new Car;
 
         $data->title = $request->input('title');
         $data->keywords = $request->input('keywords');
@@ -51,25 +46,26 @@ class TransferController extends Controller
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->detail = $request->input('detail');
-        $data->km_price = $request->input('km_price');
-        $data->base_price = $request->input('base_price');
+        $data->price = $request->input('price');
+        $data->yakitturu = $request->input('yakitturu');
+        $data->vites = $request->input('vites');
         $data->capasity = $request->input('capasity');
         $data->slug = $request->input('slug');
         $data->status = $request->input('status');
         $data->image = Storage::putFile('images', $request->file('image'));
         $data->save();
 
-        return redirect()->route('admin_transfers');
+        return redirect()->route('admin_cars');
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transfer  $Transfer
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show(Transfer $Transfer)
+    public function show(Car $car)
     {
         //
     }
@@ -77,26 +73,26 @@ class TransferController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Transfer  $Transfer
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transfer $Transfer,$id)
+    public function edit(Car $car,$id)
     {
-        $data=Transfer::find($id);
+        $data=Car::find($id);
         $datalist = Category::with('children')->get();
-        return view('admin.transfers_edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('admin.cars_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transfer  $Transfer
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transfer $transfer,$id)
+    public function update(Request $request, Car $car,$id)
     {
-        $data=Transfer::find($id);
+        $data=Car::find($id);
         $data->title = $request->input('title');
         $data->keywords = $request->input('keywords');
         $data->description = $request->input('description');
@@ -104,8 +100,9 @@ class TransferController extends Controller
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->detail = $request->input('detail');
-        $data->km_price = $request->input('km_price');
-        $data->base_price = $request->input('base_price');
+        $data->price = $request->input('price');
+        $data->yakitturu = $request->input('yakitturu');
+        $data->vites = $request->input('vites');
         $data->capasity = $request->input('capasity');
         $data->slug = $request->input('slug');
         $data->status = $request->input('status');
@@ -115,18 +112,18 @@ class TransferController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin_Transfers');
+        return redirect()->route('admin_cars');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transfer $Transfers
+     * @param  \App\Models\Car $cars
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transfer $Transfers,$id)
+    public function destroy(Car $cars,$id)
     {
-        DB::table('transfers')->where('id','=',$id)->delete();
-        return redirect()->route('admin_T-transfers');
+        DB::table('cars')->where('id','=',$id)->delete();
+        return redirect()->route('admin_cars');
     }
 }
