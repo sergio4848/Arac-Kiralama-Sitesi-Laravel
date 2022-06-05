@@ -25,10 +25,15 @@
                     </ul>
                 </div>
                 <div class="copyright-footer">
-                    <p class="copyright color-text-a">
-                        &copy; Copyright
-                        <span class="color-a">Araç Kiralama Sitesi</span> All Rights Reserved.
-                    </p>
+
+
+
+                            <a href="{{route('aboutus')}}">Hakkımızda</a>
+                            <a href="{{route('contact')}}">Bize Ulaşın</a>
+                            <a href="{{route('faq')}}">SSS</a>
+                            <a href="{{route('references')}}">Referanslarımız</a>
+
+
                 </div>
                 <div class="credits">
                     <!--

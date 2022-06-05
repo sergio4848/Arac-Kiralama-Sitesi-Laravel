@@ -19,12 +19,13 @@
                                     <thead class=" text-primary">
                                     <th>Id</th>
                                     <th>User</th>
-                                    <th>Transfer</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>Flight Time</th>
-                                    <th>Flight Date</th>
-                                    <th>Pickup Time</th>
+                                    <th>Car</th>
+                                    <th>RezTime</th>
+                                    <th>RezDate</th>
+                                    <th>Return Time</th>
+                                    <th>Return Date</th>
+                                    <th>Day</th>
+                                    <th>Amount</th>
                                     <th>Date</th>
                                     <th>Status</th>
 
@@ -41,22 +42,25 @@
                                                 <a href="{{route('admin_user_show',['id'=>$rs->user->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">{{$rs->user->name}}</a>
                                             </td>
                                             <td>
-                                                <a href="{{route('transfer',['id'=>$rs->transfer->id,'slug'=>$rs->transfer->slug])}}" target="_blank">{{$rs->transfer->title}}</a>
+                                                <a href="{{route('car',['id'=>$rs->car->id,'slug'=>$rs->car->slug])}}" target="_blank">{{$rs->car->title}}</a>
                                             </td>
                                             <td>
-                                                {{$rs->fromlocation}}
+                                                {{$rs->rezTime}}
                                             </td>
                                             <td>
-                                                {{$rs->tolocation}}
+                                                {{$rs->rezDate}}
                                             </td>
                                             <td>
-                                                {{$rs->flightTime}}
+                                                {{$rs->returnTime}}
                                             </td>
                                             <td>
-                                                {{$rs->flightDate}}
+                                                {{$rs->returnDate}}
                                             </td>
                                             <td>
-                                                {{$rs->pickupTime}}
+                                                {{$rs->days}}
+                                            </td>
+                                            <td>
+                                                {{$rs->amount}}
                                             </td>
                                             <td>
                                                 {{$rs->created_at}}

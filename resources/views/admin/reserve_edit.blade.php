@@ -44,13 +44,14 @@
                                             <thead class=" text-primary">
                                             <tr><th><b>Id</b></th><td>{{$data->id}}</td></tr>
                                             <tr><th><b>User</b></th><td>{{$data->user->name}}</td></tr>
-                                            <tr><th><b>Transfer</b></th><td>{{$data->transfer->title}}</td></tr>
-                                            <tr><th><b>Pick Up Time</b></th><td>{{$data->pickupTime}}</td></tr>
-                                            <tr><th><b>Flight Time</b></th><td>{{$data->flightTime}}</td></tr>
-                                            <tr><th><b>Flight Date</b></th><td>{{$data->flightDate}}</td></tr>
-                                            <tr><th><b>From</b></th><td>{{$data->fromlocation}}</td></tr>
-                                            <tr><th><b>To</b></th><td>{{$data->tolocation}}</td></tr>
-                                            <tr><th><b>Date</b></th><td>{{$data->created_at}}</td></tr>
+                                            <tr><th><b>Car</b></th><td>{{$data->car->title}}</td></tr>
+                                            <tr><th><b>Rez Time</b></th><td>{{$data->rezTime}}</td></tr>
+                                            <tr><th><b>Rez Date</b></th><td>{{$data->rezDate}}</td></tr>
+                                            <tr><th><b>Return Time</b></th><td>{{$data->returnTime}}</td></tr>
+                                            <tr><th><b>Return Date</b></th><td>{{$data->returnDate}}</td></tr>
+                                            <tr><th><b>Price</b></th><td>{{$data->price}}</td></tr>
+                                            <tr><th><b>Days</b></th><td>{{$data->days}}</td></tr>
+                                            <tr><th><b>Amount</b></th><td>{{$data->amount}}</td></tr>
                                             <tr><th><b>Note</b><textarea rows="9" cols="9" name="note" id="note">{{$data->note}}</textarea></th></tr><br><br>
                                             <tr><th><b>Status</b></th>
                                                 <td>

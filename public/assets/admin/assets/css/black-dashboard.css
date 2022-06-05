@@ -22,7 +22,7 @@
   --indigo: #5603ad;
   --purple: #8965e0;
   --pink: #f3a4b5;
-  --red: #f5365c;
+  --red: #101956;
   --orange: #fb6340;
   --yellow: #ffd600;
   --green: #2dce89;
@@ -88,7 +88,7 @@ body {
   line-height: 1.5;
   color: #525f7f;
   text-align: left;
-  background-color: #1e1e2f;
+  background-color: #b7b41c;
 }
 
 [tabindex="-1"]:focus {
@@ -184,13 +184,13 @@ sup {
 }
 
 a {
-  color: #e14eca;
+  color: #b7b41c;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #c221a9;
+  color: #101956;
   text-decoration: none;
 }
 

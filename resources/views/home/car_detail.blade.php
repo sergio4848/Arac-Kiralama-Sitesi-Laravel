@@ -61,6 +61,7 @@
                             @endphp
                             <div class="row">
                                 <div class="col-sm-12">
+                                    @include('home.message')
                                     <div class="property-contact">
                                         <form class="form-a" action="{{route('sendreserve',['id'=>$data->id,'slug'=>$data->slug])}}" method="post">
                                             @csrf
@@ -94,10 +95,14 @@
                                                     </div>
                                                 </div>
 
-
+@auth
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-a">Rezervasyon Yap</button>
                                                 </div>
+                                                @else
+                                                <a class="btn btn-a" href="/login">GİRİŞ YAP</a>
+                                                    <a class="btn btn-a" href="/register">KAYDOL</a>
+    @endauth
                                             </div>
                                         </form>
                                     </div>
@@ -166,7 +171,6 @@
 
                             </div>
                         </div>
-                    </div>
                         <div class="col-md-7 col-lg-7 section-md-t3">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -182,6 +186,8 @@
                             </div>
 
                         </div>
+                    </div>
+
                     </div>
                 </div>
 

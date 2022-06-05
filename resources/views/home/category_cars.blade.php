@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 
-@section('title', 'Transfer Kategorileri | '.$data->title)
+@section('title', 'Araç Kategorileri | '.$data->title)
 @include('home._header')
 
 
@@ -33,14 +33,14 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="{{route('transfer',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
+                                            <a href="{{route('car',['id' => $rs->id,'slug' => $rs->slug])}}">{{$rs->title}}</a>
                                         </h2>
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">₺ {{$rs->base_price}}</span>
+                                            <span class="price-a">₺ {{$rs->price}}</span>
                                         </div>
-                                        <a href="{{route('transfer',['id' => $rs->id,'slug' => $rs->slug])}}" class="link-a">İncele
+                                        <a href="{{route('car',['id' => $rs->id,'slug' => $rs->slug])}}" class="link-a">İncele
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>
@@ -52,7 +52,7 @@
                                             </li>
                                             <li>
                                                 <h4 class="card-info-title">Fiyat</h4>
-                                                <span>₺ {{$rs->base_price}}</span>
+                                                <span>₺ {{$rs->price}}</span>
                                             </li>
 
                                         </ul>

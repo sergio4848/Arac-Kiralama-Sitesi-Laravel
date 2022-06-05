@@ -25,9 +25,9 @@
                         <div class="row">
                             @foreach($datalist as $rs)
                             <div class="col-sm-12 col-md-6">
-                                {{$rs->transfer->title}}
+                                {{$rs->car->title}}
                                 <div class="testimonial-img">
-                                    <img src="{{ Storage::url($rs->transfer->image) }}" alt="" class="img-fluid">
+                                    <img src="{{ Storage::url($rs->car->image) }}" alt="" class="img-fluid">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">

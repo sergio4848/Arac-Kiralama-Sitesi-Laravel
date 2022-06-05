@@ -35,7 +35,7 @@
             <form action="{{route('admin_logincheck')}}" method="post" class="login100-form validate-form">
                 @csrf
                 <span class="login100-form-title">
-						TRANSFER SİTESİ ADMİN PANELİ
+						ARAÇ KİRALAMA ADMİN PANELİ
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">

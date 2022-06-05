@@ -111,18 +111,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/">Anasayfa</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Hızlı Erişim
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('aboutus')}}">Hakkımızda</a>
-                        <a class="dropdown-item" href="{{route('contact')}}">Bize Ulaşın</a>
-                        <a class="dropdown-item" href="{{route('faq')}}">SSS</a>
-                        <a class="dropdown-item" href="{{route('references')}}">Referanslarımız</a>
-                    </div>
-                </li>
+
                 @php
                     $parentCategories=\App\Http\Controllers\HomeController::categoryList();
                 @endphp

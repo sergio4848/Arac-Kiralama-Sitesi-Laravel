@@ -44,7 +44,7 @@
                                                 <thead class=" text-primary">
                                                 <tr><th><b>Id</b></th><td>{{$data->id}}</td></tr>
                                                 <tr><th><b>User</b></th><td>{{$data->user->name}}</td></tr>
-                                                <tr><th><b>transfer</b></th><td>{{$data->product->title}}</td></tr>
+                                                <tr><th><b>Car</b></th><td>{{$data->car->title}}</td></tr>
                                                 <tr><th><b>Subject</b></th><td>{{$data->subject}}</td></tr>
                                                 <tr><th><b>Review</b></th><td>{{$data->review}}</td></tr>
                                                 <tr><th><b>Date</b></th><td>{{$data->created_at}}</td></tr>
