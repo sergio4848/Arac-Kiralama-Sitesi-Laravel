@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     use HasFactory;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function reserve(){
+        return $this->hasMany(Reserve::class);
+    }
 }
