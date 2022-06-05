@@ -28,13 +28,15 @@ class HomeController extends Controller
         $daily=Car::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
         $last=Car::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
         $picked=Car::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
+        $konforlu=Car::select('id','title','image','slug','price','category_id')->where('category_id','=','2')->inRandomOrder()->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,
             'last'=>$last,
             'picked'=>$picked,
             'slider'=>$slider,
-            'page'=>'home'
+            'page'=>'home',
+            'konforlu'=>$konforlu
 
         ];
         return view('home.index',$data);
@@ -137,26 +139,24 @@ class HomeController extends Controller
         $data = new Reserve;
         $data->user_id = Auth::id();
         $car = Car::find($id);
-        $data->fromlocation = $request->input('fromlocation');
-        $data->tolocation = $request->input('tolocation');
+        $data->returnDate = $request->input('returnDate');
+        $data->rezDate = $request->input('rezDate');
+        $data->rezTime = $request->input('rezTime');
+        $data->returnTime = $request->input('returnTime');
         $data->car_id = $id;
-        $data->flightDate = $request->input('flightDate');
-        $data->flightTime = $request->input('flightTime');
-        $data->pickupTime = $request->input('pickupTime');
+        $data->price = $car->price;
+        $datetime1 = strtotime($data->rezDate); // convert to timestamps
+        $datetime2 = strtotime($data->returnDate); // convert to timestamps
+        $data->days = (int)(($datetime2 - $datetime1)/86400);
 
-
-
+        $data->amount = $data->price * $data->days;
 
 
 
         $data->IP = $_SERVER['REMOTE_ADDR'];
         $data->save();
 
-        return redirect()->route('reserveconfirm',['id'=>$car->id,'slug'=>$car->slug]);
-    }
-    public function reserveconfirm(){
-        $setting=Setting::first();
-        return view('home.reservation_confirm',['setting'=>$setting]);
+        return redirect()->route('car',['id'=>$car->id,'slug'=>$car->slug]);
     }
 
 

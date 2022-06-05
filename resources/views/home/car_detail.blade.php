@@ -67,27 +67,32 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-1">
                                                     <div class="form-group">
-                                                        <h4><b>UÇUŞ TARİHİ</b></h4>
-                                                        <input type="date" class="form-control form-control-lg form-control-a" id="flightDate" name="flightDate"
+                                                        <h4><b>ALIŞ TARİHİ</b></h4>
+                                                        <input type="date" class="form-control form-control-lg form-control-a" id="rezDate" name="rezDate"
                                                                required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mb-1">
                                                     <div class="form-group">
-                                                        <h4><b>UÇUŞ SAATİ</b></h4>
-                                                        <input type="time" class="form-control form-control-lg form-control-a" id="flightTime" name="flightTime"
+                                                        <h4><b>ALIŞ SAATİ</b></h4>
+                                                        <input type="time" class="form-control form-control-lg form-control-a" id="rezTime" name="rezTime"
                                                                required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mb-1">
                                                     <div class="form-group">
-                                                        <h4><b>PICK UP TIME</b></h4>
-                                                        <input type="time" class="form-control form-control-lg form-control-a" id="pickupTime" name="pickupTime"
+                                                        <h4><b>VERİŞ TARİHİ</b></h4>
+                                                        <input type="date" class="form-control form-control-lg form-control-a" id="returnDate" name="returnDate"
                                                                required>
                                                     </div>
                                                 </div>
-
-
+                                                <div class="col-md-12 mb-1">
+                                                    <div class="form-group">
+                                                        <h4><b>VERİŞ SAATİ</b></h4>
+                                                        <input type="time" class="form-control form-control-lg form-control-a" id="returnTime" name="returnTime"
+                                                               required>
+                                                    </div>
+                                                </div>
 
 
                                                 <div class="col-md-12">
@@ -158,6 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -182,6 +188,7 @@
 
             </div>
         </div>
+
     </section>
     <!--/ Property Single End /-->
 
