@@ -28,7 +28,7 @@ class HomeController extends Controller
         $daily=Car::select('id','title','image','slug','price','category_id')->limit(4)->inRandomOrder()->get();
         $last=Car::select('id','title','image','slug','price','category_id')->orderByDesc('id')->get();
         $picked=Car::select('id','title','image','slug','price','category_id')->inRandomOrder()->get();
-        $konforlu=Car::select('id','title','image','slug','price','category_id')->where('category_id','=','2')->inRandomOrder()->get();
+        $konforlu=Car::select('id','title','image','slug','price','capasity','category_id')->where('category_id','=','2')->inRandomOrder()->get();
         $data=[
             'setting'=>$setting,
             'daily'=>$daily,

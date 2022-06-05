@@ -3,7 +3,7 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
 
-@section('title', 'Rezervasyonlarım | '.$setting->title)
+@section('title', 'Araç Rezervasyonlarım | '.$setting->title)
 @include('home._header')
 @section ('content')
     <!--/ Testimonials Star /-->
@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="title-wrap d-flex justify-content-between">
                         <div class="title-box">
-                            <h2 class="title-a">Rezervasyonlarım</h2>
+                            <h2 class="title-a">Araç Rezervasyonlarım</h2>
                         </div>
                     </div>
                 </div>
@@ -26,9 +26,9 @@
 
                         <div class="row">
                                 <div class="col-sm-12 col-md-6">
-                                    <a href="{{route('transfer',['id' => $rs->transfer->id,'slug' => $rs->transfer->slug])}}">{{$rs->transfer->title}}</a>
+                                    <a href="{{route('car',['id' => $rs->car->id,'slug' => $rs->car->slug])}}">{{$rs->car->title}}</a>
                                     <div class="testimonial-img">
-                                        <img src="{{ Storage::url($rs->transfer->image) }}" style="height: 300px; width: 300px;" alt="" class="img-fluid">
+                                        <img src="{{ Storage::url($rs->car->image) }}" style="height: 300px; width: 300px;" alt="" class="img-fluid">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
@@ -37,10 +37,12 @@
                                     </div>
                                     <div class="testimonials-content">
                                         <p class="testimonial-text">
-                                            FLIGHT TIME:<b>{{$rs->flightTime}}</b><br>
-                                            PICKUP TIME:<b>{{$rs->pickupTime}}</b> <br>
-                                            FROM:<b>{{$rs->fromlocation}}</b> <br>
-                                            TO:<b>{{$rs->tolocation}}</b> <br>
+                                            REZ TIME:<b>{{$rs->rezTime}}</b><br>
+                                            REZ DATE:<b>{{$rs->rezDate}}</b><br>
+                                            RETURN TIME:<b>{{$rs->returnTime}}</b> <br>
+                                            RETURN DATE:<b>{{$rs->returnDate}}</b> <br>
+                                            DAYS:<b>{{$rs->days}}</b> <br>
+                                            PRICE:<b>{{$rs->price}} ₺</b> <br>
                                             NOTE:<b>{{$rs->note}}</b> <br>
 
                                             OLUŞTURULMA TARİHİ:{{$rs->created_at}}<br>
@@ -48,8 +50,7 @@
                                         </p>
                                     </div>
                                     <div class="testimonial-author-box">
-                                        <h5 class="testimonial-author">FİYAT:{{$rs->transfer->base_price}} ₺</h5>
-                                        <h5 class="testimonial-author">UÇUŞ TARİHİ:{{$rs->flightDate}}</h5>
+                                        <h5 class="testimonial-author">FİYAT:{{$rs->amount}} ₺</h5>
                                     </div>
                                 </div>
                         </div>
