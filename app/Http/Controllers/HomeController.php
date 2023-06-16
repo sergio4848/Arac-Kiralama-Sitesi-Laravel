@@ -11,6 +11,7 @@ use App\Models\Message;
 use App\Models\Reserve;
 use App\Models\Review;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,6 +53,8 @@ class HomeController extends Controller
         $data=Car::find($id);
         $images=Image::where('car_id',$id)->get();
         $reviews=Review::where('car_id',$id)->get();
+
+
 
 
         return view('home.car_detail',['setting'=>$setting,'data'=>$data,'images'=>$images,'reviews'=>$reviews]);

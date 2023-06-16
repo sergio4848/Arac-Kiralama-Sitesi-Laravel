@@ -14,7 +14,7 @@ class CarController extends Controller
 {
     public function index()
     {
-        $datalist=Car::all();
+        $datalist=Car::where('user_id',Auth::id())->get();
         return view('admin.cars',['datalist'=>$datalist]);
     }
 

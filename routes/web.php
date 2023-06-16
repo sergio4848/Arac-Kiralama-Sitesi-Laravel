@@ -82,14 +82,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::get('show/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'show'])->name('admin_review_show');
 
         });
-        Route::prefix('reserve')->group(function () {
 
-            Route::get('/', [\App\Http\Controllers\Admin\ReserveController::class, 'index'])->name('admin_reserve');
-            Route::post('update/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'update'])->name('admin_reserve_update');
-            Route::get('delete/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'destroy'])->name('admin_reserve_delete');
-            Route::get('show/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'show'])->name('admin_reserve_show');
-
-        });
         Route::prefix('faq')->group(function () {
             Route::get('/', [FaqController::class, 'index'])->name('admin_faq');
             Route::get('create', [FaqController::class, 'create'])->name('admin_faq_add');
@@ -100,16 +93,29 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::get('show', [FaqController::class, 'show'])->name('admin_faq_show');
 
         });
+
+
         Route::prefix('car')->group(function () {
-            Route::get('/', [\App\Http\Controllers\Admin\CarController::class, 'index'])->name('admin_cars');
-            Route::get('create', [\App\Http\Controllers\Admin\CarController::class, 'create'])->name('admin_car_create');
-            Route::post('store', [\App\Http\Controllers\Admin\CarController::class, 'store'])->name('admin_car_store');
-            Route::get('edit/{id}', [\App\Http\Controllers\Admin\CarController::class, 'edit'])->name('admin_car_edit');
-            Route::post('update/{id}', [\App\Http\Controllers\Admin\CarController::class, 'update'])->name('admin_car_update');
-            Route::get('delete/{id}', [\App\Http\Controllers\Admin\CarController::class, 'destroy'])->name('admin_car_delete');
-            Route::get('show', [\App\Http\Controllers\Admin\CarController::class, 'show'])->name('admin_car_show');
+              Route::get('/', [\App\Http\Controllers\Admin\CarController::class, 'index'])->name('admin_cars');
+              Route::get('create', [\App\Http\Controllers\Admin\CarController::class, 'create'])->name('admin_car_create');
+              Route::post('store', [\App\Http\Controllers\Admin\CarController::class, 'store'])->name('admin_car_store');
+              Route::get('edit/{id}', [\App\Http\Controllers\Admin\CarController::class, 'edit'])->name('admin_car_edit');
+              Route::post('update/{id}', [\App\Http\Controllers\Admin\CarController::class, 'update'])->name('admin_car_update');
+              Route::get('delete/{id}', [\App\Http\Controllers\Admin\CarController::class, 'destroy'])->name('admin_car_delete');
+              Route::get('show', [\App\Http\Controllers\Admin\CarController::class, 'show'])->name('admin_car_show');
 
         });
+
+        Route::prefix('reserve')->group(function () {
+
+              Route::get('/', [\App\Http\Controllers\Admin\ReserveController::class, 'index'])->name('admin_reserve');
+              Route::post('update/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'update'])->name('admin_reserve_update');
+              Route::get('delete/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'destroy'])->name('admin_reserve_delete');
+              Route::get('show/{id}', [\App\Http\Controllers\Admin\ReserveController::class, 'show'])->name('admin_reserve_show');
+
+        });
+
+
         #Settings
         Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
         Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');

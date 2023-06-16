@@ -28,10 +28,7 @@
 
 
 
-                            <a href="{{route('aboutus')}}">Hakkımızda</a>
-                            <a href="{{route('contact')}}">Bize Ulaşın</a>
-                            <a href="{{route('faq')}}">SSS</a>
-                            <a href="{{route('references')}}">Referanslarımız</a>
+
 
 
                 </div>
@@ -57,7 +54,7 @@
 <script src="{{ asset('assets')}}/lib/jquery/jquery.min.js"></script>
 <script src="{{ asset('assets')}}/lib/jquery/jquery-migrate.min.js"></script>
 <script src="{{ asset('assets')}}/lib/popper/popper.min.js"></script>
-<script src="{{ asset('assets')}}/lib/bootstrap/{{ asset('assets')}}/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets')}}/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="{{ asset('assets')}}/lib/easing/easing.min.js"></script>
 <script src="{{ asset('assets')}}/lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="{{ asset('assets')}}/lib/scrollreveal/scrollreveal.min.js"></script>

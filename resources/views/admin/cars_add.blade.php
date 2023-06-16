@@ -48,6 +48,7 @@
                                                 }
                                             </script>
                                         <tr><h4>Price: </h4><input style="width: 1000px" id="price" type="number" name="price" placeholder="Price"/></tr><br>
+                                        <tr><h4>Phone: </h4><input style="width: 1000px" id="phone" type="number" name="phone" placeholder="phone"/></tr><br>
                                         <tr><h4>Yakıt Türü: </h4><input style="width: 1000px" id="yakitturu" type="text" name="yakitturu" placeholder="yakitturu"/></tr><br>
                                         <tr><h4>Vites: </h4><input style="width: 1000px" id="vites" type="text" name="vites" placeholder="vites"/></tr><br>
                                         <tr><h4>Capasity: </h4><input style="width: 1000px" id="capasity" type="number" name="capasity" placeholder="capasity"/></tr><br>

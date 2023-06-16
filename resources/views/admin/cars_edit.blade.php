@@ -48,6 +48,7 @@
                                             }
                                         </script>
                                         <tr><h4>Price: </h4><input style="width: 1000px" id="price" value="{{$data->price}}" type="number" name="price" placeholder="Price"/></tr><br>
+                                        <tr><h4>Phone: </h4><input style="width: 1000px" id="phone" value="{{$data->phone}}" type="number" name="phone" placeholder="phone"/></tr><br>
                                         <tr><h4>Yakıt Türü: </h4><input style="width: 1000px" id="yakitturu" value="{{$data->yakitturu}}" type="text" name="yakitturu" placeholder="yakitturu"/></tr><br>
                                         <tr><h4>Vites: </h4><input style="width: 1000px" id="vites" value="{{$data->vites}}" type="text" name="vites" placeholder="vites"/></tr><br>
                                         <tr><h4>Kapasite: </h4><input style="width: 1000px" id="capasity" value="{{$data->capasity}}" type="number" name="capasity" placeholder="capasity"/></tr><br>

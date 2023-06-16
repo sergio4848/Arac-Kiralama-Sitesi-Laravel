@@ -101,7 +101,7 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="/">Araç<img src="{{asset('assets/img/carlogo.png')}}" style="width: 100px; height: 60px;"><span class="color-b">Kirala</span></a>
+        <a class="navbar-brand text-brand" href="/">RENT<img src="{{asset('assets/img/carlogo.png')}}" style="width: 100px; height: 60px;"><span class="color-b">A CAR</span></a>
         <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
                 data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
@@ -111,7 +111,18 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/">Anasayfa</a>
                 </li>
-
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Hızlı Erişim
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('aboutus')}}">Hakkımızda</a>
+                        <a class="dropdown-item" href="{{route('contact')}}">Bize Ulaşın</a>
+                        <a class="dropdown-item" href="{{route('faq')}}">SSS</a>
+                        <a class="dropdown-item" href="{{route('references')}}">Referanslarımız</a>
+                    </div>
+                </li>
                 @php
                     $parentCategories=\App\Http\Controllers\HomeController::categoryList();
                 @endphp

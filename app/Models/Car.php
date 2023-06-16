@@ -16,4 +16,8 @@ class Car extends Model
     public function reserve(){
         return $this->hasMany(Reserve::class);
     }
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

@@ -180,6 +180,39 @@
                                 </div>
                             </div>
                             <div class="property-description">
+                                <div class="col-md-8 section-md-t3">
+                                    <div class="agent-info-box">
+                                        <div class="agent-title">
+                                            <div class="title-box-d">
+
+                                            </div>
+                                        </div>
+                                        <div class="agent-content mb-3">
+
+                                            <div class="info-agents color-a">
+                                                <p>
+                                                    <strong>Phone: </strong>
+                                                    <span class="color-text-a">{{$data->phone}} </span>
+                                                </p>
+
+                                                <p>
+                                                    <strong>Yakıt Türü: </strong>
+                                                    <span class="color-text-a">{{$data->yakitturu}}</span>
+                                                </p>
+                                                <p>
+                                                    <strong>Vites: </strong>
+                                                    <span class="color-text-a"> {{$data->vites}}</span>
+                                                </p>
+                                                <p>
+                                                    <strong>Kapasite: </strong>
+                                                    <span class="color-text-a"> {{$data->capasity}}</span>
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
                                 <p class="description color-text-a">
                                     {!! $data->detail !!}
                                 </p>

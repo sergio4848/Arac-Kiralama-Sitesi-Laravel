@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Reserve::class);
     }
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+
 }
